@@ -21,3 +21,32 @@ const text = [
     'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et temporibus voluptatum suscipit tempore aliquid deleniti aut veniam inventore eligendi ex ad ullam,',
     'Et temporibus voluptatum suscipit tempore aliquid deleniti aut veniam inventore eligendi ex ad ullam,',
 ]
+
+// Constant creation to select the items and thumbs containers
+const itemsContainer = document.querySelector(".items")
+const thumbsContainer = document.querySelector(".thumbs")
+
+// Cycle to print on html all the arrays'values based on the created html structure
+for (i = 0; i < items.length; i++) {
+    itemsContainer.innerHTML += (`
+        <div class="item">
+            <img src=${items[i]} alt="">
+            <div class="text">
+                <h3>${title[i]}</h3>
+                <p>${text[i]}</p>
+            </div>
+        </div>`)
+
+    thumbsContainer.innerHTML += (`
+        <div class="thumb">
+            <img src=${items[i]} alt="">
+        </div>`)                              
+}
+
+// Add the active class to the first element of the array
+document.getElementsByClassName("item")[0].classList.add("active");
+document.getElementsByClassName("thumb")[0].classList.add("active");
+
+// Add the event click on prev and next buttons
+    // fuction that add the class to the next element and remove the class from the actual element
+    // maximum 5 addiction and then restart from the first

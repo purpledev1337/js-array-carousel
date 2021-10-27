@@ -41,6 +41,7 @@
     width: 20%;
     float: left;
     height: 100%;
+    position: relative;
     background-color: black;
 }
 
@@ -60,6 +61,34 @@
 }
 
 .thumb.active {
-    border: 3px lightgrey solid;
+    border: 2px lightgrey solid;
     opacity: 1;
+}
+
+.prev::after {
+    content: "\1431";
+    background-color: grey;
+    border-radius: 50%;
+    padding: 4px;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, 20%);
+    z-index: 100;
+}
+
+.next::after {
+    content: "\142F";
+    background-color: grey;
+    border-radius: 50%;
+    padding: 4px;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, -20%);
+    z-index: 100;
+}
+
+.prev, .next:hover {
+    cursor: pointer;
 }
