@@ -53,39 +53,27 @@ document.getElementsByClassName("thumb")[0].classList.add("active");
     // fuction that add the class to the next element and remove the class from the actual element
     document.querySelector(".next").addEventListener("click",
     function() {
-        if (thumbPos > 3) {
+        thumbPos++;
+        if (thumbPos > 4) {
             thumbPos = 0;
-            document.getElementsByClassName("item")[0].classList.add("active");
-            document.getElementsByClassName("item")[4].classList.remove("active");   
-            document.getElementsByClassName("thumb")[0].classList.add("active");
-            document.getElementsByClassName("thumb")[4].classList.remove("active");
-            
-        } else {
-            thumbPos++;
-            document.getElementsByClassName("item")[thumbPos].classList.add("active");
-            document.getElementsByClassName("item")[thumbPos - 1].classList.remove("active");
-            document.getElementsByClassName("thumb")[thumbPos].classList.add("active");
-            document.getElementsByClassName("thumb")[thumbPos - 1].classList.remove("active");
-            }
+        }
+        document.querySelector(".item.active").classList.remove("active");   
+        document.getElementsByClassName("item")[thumbPos].classList.add("active");
+        document.querySelector(".thumb.active").classList.remove("active");
+        document.getElementsByClassName("thumb")[thumbPos].classList.add("active");
         }
     );
 
     document.querySelector(".prev").addEventListener("click",
     function() {
-        if (thumbPos < 1) {
+        thumbPos--;
+        if (thumbPos < 0) {
             thumbPos = 4;
-            document.getElementsByClassName("item")[4].classList.add("active");
-            document.getElementsByClassName("item")[0].classList.remove("active");   
-            document.getElementsByClassName("thumb")[4].classList.add("active");
-            document.getElementsByClassName("thumb")[0].classList.remove("active");
-            
-        } else {
-            thumbPos--;
-            document.getElementsByClassName("item")[thumbPos].classList.add("active");
-            document.getElementsByClassName("item")[thumbPos + 1].classList.remove("active");
-            document.getElementsByClassName("thumb")[thumbPos].classList.add("active");
-            document.getElementsByClassName("thumb")[thumbPos + 1].classList.remove("active");
-            }
+        }
+        document.querySelector(".item.active").classList.remove("active");
+        document.getElementsByClassName("item")[thumbPos].classList.add("active");
+        document.querySelector(".thumb.active").classList.remove("active");
+        document.getElementsByClassName("thumb")[thumbPos].classList.add("active");
         }
     );
     // maximum 5 addiction and then restart from the first
