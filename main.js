@@ -23,8 +23,8 @@ const text = [
 ]
 
 // Constant creation to select the items and thumbs containers
-const itemsContainer = document.querySelector(".items")
-const thumbsContainer = document.querySelector(".thumbs")
+const itemsContainer = document.querySelector(".items");
+const thumbsContainer = document.querySelector(".thumbs");
 
 // Cycle to print on html all the arrays'values based on the created html structure
 for (i = 0; i < items.length; i++) {
@@ -35,12 +35,12 @@ for (i = 0; i < items.length; i++) {
                 <h3>${title[i]}</h3>
                 <p>${text[i]}</p>
             </div>
-        </div>`)
+        </div>`);
 
     thumbsContainer.innerHTML += (`
         <div class="thumb">
             <img src=${items[i]} alt="">
-        </div>`)                              
+        </div>`);
 }
 
 // Add the active class to the first element of the array
@@ -48,5 +48,44 @@ document.getElementsByClassName("item")[0].classList.add("active");
 document.getElementsByClassName("thumb")[0].classList.add("active");
 
 // Add the event click on prev and next buttons
+    // i declare the active position variable
+    let thumbPos = 0;
     // fuction that add the class to the next element and remove the class from the actual element
+    document.querySelector(".next").addEventListener("click",
+    function() {
+        if (thumbPos > 3) {
+            thumbPos = 0;
+            document.getElementsByClassName("item")[0].classList.add("active");
+            document.getElementsByClassName("item")[4].classList.remove("active");   
+            document.getElementsByClassName("thumb")[0].classList.add("active");
+            document.getElementsByClassName("thumb")[4].classList.remove("active");
+            
+        } else {
+            thumbPos++;
+            document.getElementsByClassName("item")[thumbPos].classList.add("active");
+            document.getElementsByClassName("item")[thumbPos - 1].classList.remove("active");
+            document.getElementsByClassName("thumb")[thumbPos].classList.add("active");
+            document.getElementsByClassName("thumb")[thumbPos - 1].classList.remove("active");
+            }
+        }
+    );
+
+    document.querySelector(".prev").addEventListener("click",
+    function() {
+        if (thumbPos < 1) {
+            thumbPos = 4;
+            document.getElementsByClassName("item")[4].classList.add("active");
+            document.getElementsByClassName("item")[0].classList.remove("active");   
+            document.getElementsByClassName("thumb")[4].classList.add("active");
+            document.getElementsByClassName("thumb")[0].classList.remove("active");
+            
+        } else {
+            thumbPos--;
+            document.getElementsByClassName("item")[thumbPos].classList.add("active");
+            document.getElementsByClassName("item")[thumbPos + 1].classList.remove("active");
+            document.getElementsByClassName("thumb")[thumbPos].classList.add("active");
+            document.getElementsByClassName("thumb")[thumbPos + 1].classList.remove("active");
+            }
+        }
+    );
     // maximum 5 addiction and then restart from the first
