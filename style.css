@@ -3,3 +3,63 @@
     margin: 0;
     box-sizing: border-box;
 }
+
+.container {
+    width: 50%;
+    margin: 20% auto;
+    height: 400px;
+}
+
+.items {
+    width: 80%;
+    float: left;
+    height: 100%;
+    overflow: hidden;
+}
+
+.item {
+    position: relative;
+    display: none;
+    height: 100%;
+}
+
+.item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.text {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    text-align: right;
+    margin: 15px;
+}
+
+.thumbs {
+    width: 20%;
+    float: left;
+    height: 100%;
+    background-color: black;
+}
+
+.thumb {
+    height: calc(100% / 5);
+    opacity: 0.5;
+}
+
+.thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.item.active {
+    display: block;
+}
+
+.thumb.active {
+    border: 3px lightgrey solid;
+    opacity: 1;
+}
